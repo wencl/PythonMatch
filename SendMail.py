@@ -6,7 +6,6 @@ from email.mime.image import MIMEImage
 from email.utils import parseaddr, formataddr
 import config
 import smtplib
-import os
 from_addr = config.from_email
 password = config.emil_password
 to_addr = config.to_email
@@ -17,7 +16,8 @@ def _format_addr(s):
     name, addr = parseaddr(s)
     return formataddr((Header(name, 'utf-8').encode(), addr))
 
-def sedMessage(massage):
+
+def sed_message(massage):
     # 邮件对象:
     msg = MIMEMultipart()
     msg['From'] = _format_addr('系统<%s>' % from_addr)
@@ -26,7 +26,6 @@ def sedMessage(massage):
     # 邮件正文是MIMEText:
     msg.attach(MIMEText(massage, 'plain', 'utf-8'))
     # 添加图片
-
     # msg.attach(MIMEText('<html><body><p>' + massage + '</p>' +
     #                     '<p><img src="cid:1.jpg"></p>' +
     #                     '<p><img src="cid:2.jpg"></p>' +
@@ -51,9 +50,6 @@ def sedMessage(massage):
     #         # encoders.encode_base64(mime)
     #         # 添加到MIMEMultipart:
     #         msg.attach(mime)
-
-
-
     server = smtplib.SMTP(smtp_server, 25)
     # server.set_debuglevel(1)
     server.login(from_addr, password)
