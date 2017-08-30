@@ -11,5 +11,6 @@ minutes=list(range(930, 960))+list(range(1000, 1060))+list(range(1100, 1130))+li
 
 # 发邮件
 from_email = "liangfei2016x@163.com"
-emil_password = ""
+emil_password = "liangfei..01"
 to_email = "fei.liang@genius.com.cn"
+# to_email = "java_liangfei@163.com"
